@@ -1,0 +1,6 @@
+*\~
+*.zst
+*.xz
+*.sig
+mesa-archlinux-arm/mesa/pkg/
+mesa-archlinux-arm/mesa/src/
