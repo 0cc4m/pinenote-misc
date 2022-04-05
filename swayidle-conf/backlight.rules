@@ -1,0 +1,2 @@
+KERNEL=="backlight_cool", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/backlight_cool/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/backlight_cool/brightness"
+KERNEL=="backlight_warm", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/backlight_warm/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/backlight_warm/brightness"
