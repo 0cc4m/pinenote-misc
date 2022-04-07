@@ -14,8 +14,8 @@ highmem=1
 pkgbase=mesa
 pkgname=('vulkan-mesa-layers' 'opencl-mesa' 'vulkan-radeon' 'vulkan-swrast' 'vulkan-broadcom' 'vulkan-panfrost' 'libva-mesa-driver' 'mesa-vdpau' 'mesa')
 pkgdesc="An open-source implementation of the OpenGL specification"
-pkgver=22.0.0
-pkgrel=1.1
+pkgver=22.0.1
+pkgrel=3
 arch=('x86_64')
 makedepends=('python-mako' 'libxml2' 'libx11' 'xorgproto' 'libdrm' 'libxshmfence' 'libxxf86vm'
              'libxdamage' 'libvdpau' 'libva' 'wayland' 'wayland-protocols' 'zstd' 'elfutils' 'llvm'
@@ -23,11 +23,12 @@ makedepends=('python-mako' 'libxml2' 'libx11' 'xorgproto' 'libdrm' 'libxshmfence
              'valgrind' 'glslang' 'vulkan-icd-loader' 'directx-headers' 'cmake' 'meson')
 url="https://www.mesa3d.org/"
 license=('custom')
+options=('debug')
 source=(https://mesa.freedesktop.org/archive/mesa-${pkgver}.tar.xz{,.sig}
         https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/15365.patch
         rockchip_ebc.patch
         LICENSE)
-sha512sums=('9faef66adbacba24d11dfe8e2d1a753295798883a10a7cc91e6df9d678c64a8286a12e60c0d8576d944a8cc76f00c30d27c3a71d3458bbe3dbcd66c88a454c3b'
+sha512sums=('cc8012b8f3fcbecfbb153d0e009e6522c3776023501da8499c06f1eaa9ab0a555ca597e16e4d7a2b954b05c8c0737ae6567e0d8549fb63aa86ae587eb31cd01e'
             'SKIP'
             '9178bbe145ba2d8b5ef5cb3fcfc63b90aff47ec45bed075d2af27b2c42d1e38e16f1c5a712b7ab3788038170bd4c4cacd5cdb9ad578a0275fc54621dd9356ce6'
             '5ab31c0fafee04b493835fc2908d50d3911d842b5f0156f7559ae04592ca87a7fe95f91ba9fb06881671818e118abed834fc68e2c472cff664f866ec014ebde7'
@@ -53,6 +54,14 @@ build() {
     armv7h)  GALLIUM=",etnaviv,kmsro,lima,panfrost,tegra,v3d,vc4" ;;
     aarch64) GALLIUM=",etnaviv,kmsro,lima,panfrost,v3d,vc4" ;;
   esac
+
+  # Build only minimal debug info to reduce size
+  CFLAGS+=' -g1'
+  CXXFLAGS+=' -g1'
+
+  # https://gitlab.freedesktop.org/mesa/mesa/-/issues/6229
+  CFLAGS+=' -mtls-dialect=gnu'
+  CXXFLAGS+=' -mtls-dialect=gnu'
 
   arch-meson mesa-$pkgver build \
     -D b_lto=$([[ $CARCH == aarch64 ]] && echo true || echo false) \
