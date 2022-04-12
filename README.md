@@ -28,7 +28,7 @@ Files in `sway/config` belong in `~/.config` and files in `sway/local` belong in
 To automatically start sway I used [autologin](https://git.sr.ht/~kennylevinsen/autologin), but because I had issues with missing environment I used commit `ba01e1630742c08d81a8d8a6dd961080c90bc63b`. For some reason sourcing the environment was removed afterwards.
 
 Install the required programs with:
-`sudo pacman -S sway swayidle polkit-gnome network-manager-applet alacritty ttf-dejavu ttf-font-awesome light imv`
+`sudo pacman -S sway swayidle polkit-gnome network-manager-applet alacritty ttf-dejavu ttf-font-awesome light imv wtype`
 and the AUR programs:
 `swaylock-fancy squeekboard ulauncher waybar-git`
 (waybar-git until my battery-compatibility patch arrives in the community package)
