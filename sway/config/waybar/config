@@ -1,0 +1,205 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+//
+// =============================================================================
+
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+
+    "position": "top",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 40,
+
+    "modules-left": [
+      "custom/winleft",
+      "custom/winup",
+      "custom/windown",
+      "custom/winright",
+      "custom/movetows1",
+      "custom/movetows2",
+      "custom/movetows3",
+      "custom/movetows4",
+      "custom/movetows5",
+    ],
+    "modules-center": [
+        "sway/window",
+        "sway/mode",
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "temperature",
+        "battery",
+        "tray",
+        "clock#time",
+        "custom/kill",
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "battery": {
+        "bat": "rk817-battery",
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        // Connected to AC
+        "format": " {icon} {capacity}%", // Icon: bolt
+        // Not connected to AC
+        "format-discharging": "{icon} {capacity}%",
+        "format-icons": [
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
+            "", // Icon: battery-half
+            "", // Icon: battery-quarter
+            ""  // Icon: battery-empty
+        ],
+        "tooltip": true
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+
+    "clock#date": {
+      "interval": 10,
+      "format": "  {:%e %b %Y}", // Icon: calendar-alt
+      "tooltip-format": "{:%e %B %Y}"
+    },
+
+    "cpu": {
+        "interval": 5,
+        "format": "  {usage}%", // Icon: microchip
+        "states": {
+          "warning": 70,
+          "critical": 90
+        }
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "  {}%", // Icon: memory
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "temperature": {
+      "critical-threshold": 80,
+      "interval": 5,
+      "format": "{icon}  {temperatureC}°C",
+      "format-icons": [
+          "", // Icon: temperature-empty
+          "", // Icon: temperature-quarter
+          "", // Icon: temperature-half
+          "", // Icon: temperature-three-quarters
+          ""  // Icon: temperature-full
+      ],
+      "tooltip": true,
+      "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    },
+
+    "custom/kill": {
+      "format": "",
+      "interval": "once",
+      "on-click": "swaymsg kill",
+      "min-length": 5,
+      "tooltip": false,
+    },
+
+    "custom/winleft": {
+      "format": "",
+      "interval": "once",
+      "on-click": "swaymsg move left",
+      "min-length": 5,
+      "tooltip": false,
+    },
+    "custom/winright": {
+      "format": "",
+      "interval": "once",
+      "on-click": "swaymsg move right",
+      "min-length": 5,
+      "tooltip": false,
+    },
+    "custom/winup": {
+      "format": "",
+      "interval": "once",
+      "on-click": "swaymsg move up",
+      "min-length": 5,
+      "tooltip": false,
+    },
+    "custom/windown": {
+      "format": "",
+      "interval": "once",
+      "on-click": "swaymsg move down",
+      "min-length": 5,
+      "tooltip": false,
+    },
+
+    "custom/movetows1": {
+      "format": "1",
+      "interval": "once",
+      "on-click": "swaymsg move container to workspace number 1",
+      "min-length": 5,
+      "tooltip": false,
+    },
+    "custom/movetows2": {
+      "format": "2",
+      "interval": "once",
+      "on-click": "swaymsg move container to workspace number 2",
+      "min-length": 5,
+      "tooltip": false,
+    },
+    "custom/movetows3": {
+      "format": "3",
+      "interval": "once",
+      "on-click": "swaymsg move container to workspace number 3",
+      "min-length": 5,
+      "tooltip": false,
+    },
+    "custom/movetows4": {
+      "format": "4",
+      "interval": "once",
+      "on-click": "swaymsg move container to workspace number 4",
+      "min-length": 5,
+      "tooltip": false,
+    },
+    "custom/movetows5": {
+      "format": "5",
+      "interval": "once",
+      "on-click": "swaymsg move container to workspace number 5",
+      "min-length": 5,
+      "tooltip": false,
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
+
+}

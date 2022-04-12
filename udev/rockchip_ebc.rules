@@ -1,0 +1,1 @@
+KERNELS=="rockchip_ebc", RUN+="/bin/chgrp video /sys/module/rockchip_ebc/parameters/force_refresh", RUN+="/bin/chmod g+w /sys/module/rockchip_ebc/parameters/force_refresh", RUN+="/bin/chgrp video /sys/module/rockchip_ebc/parameters/lut_type", RUN+="/bin/chmod g+w /sys/module/rockchip_ebc/parameters/lut_type"

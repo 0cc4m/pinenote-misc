@@ -1,0 +1,245 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+window#waybar {
+    background-color: #000000;
+    border-bottom: 3px solid #000000;
+   color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.0;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #000000;
+}
+*/
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+   color: #ffffff;
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each workspace name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.focused {
+    background-color: #000000;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #000000;
+}
+
+#mode {
+    background-color: #000000;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+   color: #ffffff;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #000000;
+}
+
+#battery {
+    background-color: #000000;
+   color: #ffffff;
+}
+
+#battery.charging, #battery.plugged {
+   color: #ffffff;
+    background-color: #000000;
+}
+
+@keyframes blink {
+    to {
+        background-color: #000000;
+       color: #ffffff;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #000000;
+   color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: #000000;
+   color: #ffffff;
+}
+
+#memory {
+    background-color: #000000;
+}
+
+#disk {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: #000000;
+}
+
+#network {
+    background-color: #000000;
+}
+
+#network.disconnected {
+    background-color: #000000;
+}
+
+#pulseaudio {
+    background-color: #000000;
+   color: #ffffff;
+}
+
+#pulseaudio.muted {
+    background-color: #000000;
+   color: #ffffff;
+}
+
+#custom-media {
+    background-color: #000000;
+   color: #ffffff;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #000000;
+}
+
+#custom-media.custom-vlc {
+    background-color: #000000;
+}
+
+#temperature {
+    background-color: #000000;
+}
+
+#temperature.critical {
+    background-color: #000000;
+}
+
+#tray {
+    background-color: #000000;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #000000;
+}
+
+#idle_inhibitor {
+    background-color: #000000;
+}
+
+#idle_inhibitor.activated {
+    background-color: #000000;
+   color: #ffffff;
+}
+
+#mpd {
+    background-color: #000000;
+   color: #ffffff;
+}
+
+#mpd.disconnected {
+    background-color: #000000;
+}
+
+#mpd.stopped {
+    background-color: #000000;
+}
+
+#mpd.paused {
+    background-color: #000000;
+}
+
+#language {
+    background: #00b093;
+   color: #ffffff;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #000000;
+   color: #ffffff;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
