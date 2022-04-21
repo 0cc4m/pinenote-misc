@@ -42,3 +42,7 @@ Put [before_sleep.sh](sway/local/bin/before_sleep.sh) and [after_resume.sh](sway
 
 Change the image path to an existing picture on your device.
 To give my user account access to the backlight I created udev rules [backlight.rules](udev/backlight.rules) and added my user to the video group.
+
+## Firefox Hardware Acceleration
+
+Firefox disables hardware acceleration by default on aarch64, to enable it set `MOZ_ENABLE_WAYLAND=1` in your environment to run Firefox in native Wayland mode, then set `gfx.webrender.all` to true in `about:config`. `about:support` should now show `WebRender` under `Compositing`, instead of `WebRender (Software)`.
