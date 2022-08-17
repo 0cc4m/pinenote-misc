@@ -1,0 +1,13 @@
+diff --git a/plugins/power/gsd-backlight.c b/plugins/power/gsd-backlight.c
+index ca5f2723..8a8ed079 100644
+--- a/plugins/power/gsd-backlight.c
++++ b/plugins/power/gsd-backlight.c
+@@ -230,7 +230,7 @@ gsd_backlight_udev_init (GsdBacklight *backlight)
+ 
+         backlight->brightness_max = g_udev_device_get_sysfs_attr_as_int (backlight->udev_device,
+                                                                          "max_brightness");
+-        backlight->brightness_min = MAX (1, backlight->brightness_max * 0.01);
++        backlight->brightness_min = 0;
+ 
+         /* If the interface has less than 100 possible values, and it is of type
+          * raw, then assume that 0 does not turn off the backlight completely. */
