@@ -1,0 +1,8 @@
+[Unit]
+Description=Disables the backlights on boot
+
+[Service]
+ExecStart=/bin/bash /usr/local/bin/backlight_off.sh
+
+[Install]
+WantedBy=multi-user.target
