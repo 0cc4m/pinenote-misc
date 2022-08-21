@@ -5,7 +5,7 @@ diff -ruN mesa-21.3.7/src/gallium/targets/dri/meson.build mesa-21.3.7_mod/src/ga
                 'pl111_dri.so',
                 'repaper_dri.so',
                 'rockchip_dri.so',
-+               'rockchip_ebc_dri.so',
++               'rockchip-ebc_dri.so',
                 'st7586_dri.so',
                 'st7735r_dri.so',
                 'stm_dri.so',
