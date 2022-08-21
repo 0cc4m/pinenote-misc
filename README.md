@@ -9,6 +9,8 @@ You need to enable the GPU in the kernel device tree first. [Here](https://githu
 
 For pre-built packages check the [releases page](https://github.com/0cc4m/pinenote-misc/releases).
 
+From mesa release 22.1.6-1 on the supported ebc driver is [smaeul's rockchip-ebc](https://github.com/smaeul/linux/tree/rk35/pinenote-next) instead of [pgwipeout's rockchip_ebc](https://gitlab.com/pgwipeout/linux-next). To restore support for rockchip_ebc just link `/usr/lib/dri/rockchip_ebc_dri.so` to the new `/usr/lib/dri/rockchip-ebc_dri.so`.
+
 ## Koreader
 
 Koreader does not provide an Archlinux-build, so I used [debtap](https://github.com/helixarch/debtap) to convert the [latest .deb](https://github.com/koreader/koreader/releases/tag/v2022.03.1) to an Archlinux-package.
